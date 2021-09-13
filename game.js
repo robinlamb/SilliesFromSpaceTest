@@ -212,7 +212,7 @@ function switchSillies(){
     document.getElementById("s_jetstream").style.visibility = "visible";
     zzfx(...[1.01,,59,,.06,.17,1,1.97,5.2,,,,,,,.3,,.76,.08]); // Jump 724
     document.getElementById("points").style.visibility = "visible";
-    document.getElementById("points").innerHTML = "+" + clearScore.toString();
+    document.getElementById("points").innerHTML = "+" + clearScore;
     clearScore *= 2;
   }, 500);
 
@@ -356,14 +356,14 @@ function checkGuess(player_guess, silly_move) {
     myAudioNode.stop();
     zzfx(...[1.49,,143,,.39,.19,,1.43,,,-8,.09,.11,,,,.12,.73,.07,.24]); // Powerup 691
     document.getElementById("gameoverscreen").style.visibility = "visible";
-    document.getElementById("score").innerHTML = "Score: " + score.toString();
+    document.getElementById("score").innerHTML = "Score: " + score;
     highScore = localStorage.getItem("silliesfromspace_highscore");
     if ((highScore == null) || (score > highScore)) {
       localStorage.setItem("silliesfromspace_highscore", score);
       document.getElementById("highscore").innerHTML = "New High Score🏆";
     }
     else {
-      document.getElementById("highscore").innerHTML = "High Score: " + highScore.toString();
+      document.getElementById("highscore").innerHTML = "High Score: " + highScore;
 
     }
     if (isCoilSubscriber){
