@@ -212,7 +212,7 @@ function switchSillies(){
     document.getElementById("s_jetstream").style.visibility = "visible";
     zzfx(...[1.01,,59,,.06,.17,1,1.97,5.2,,,,,,,.3,,.76,.08]); // Jump 724
     document.getElementById("points").style.visibility = "visible";
-    lbClearScore =  "+" + clearScore;
+    lbClearScore =  ("+" + clearScore.toString());
     document.getElementById("points").innerHTML = lbClearScore;
     clearScore *= 2;
   }, 500);
