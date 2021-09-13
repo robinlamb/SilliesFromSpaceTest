@@ -212,7 +212,7 @@ function switchSillies(){
     document.getElementById("s_jetstream").style.visibility = "visible";
     zzfx(...[1.01,,59,,.06,.17,1,1.97,5.2,,,,,,,.3,,.76,.08]); // Jump 724
     document.getElementById("points").style.visibility = "visible";
-    lbClearScore =  ("+" + clearScore.toString());
+    lbClearScore =  `+ ${clearScore}`;
     document.getElementById("points").innerHTML = lbClearScore;
     clearScore *= 2;
   }, 500);
@@ -357,10 +357,10 @@ function checkGuess(player_guess, silly_move) {
     myAudioNode.stop();
     zzfx(...[1.49,,143,,.39,.19,,1.43,,,-8,.09,.11,,,,.12,.73,.07,.24]); // Powerup 691
     document.getElementById("gameoverscreen").style.visibility = "visible";
-    lbScore = "Score: " + score;
+    lbScore = `Score: ${score}`;
     document.getElementById("score").innerHTML = lbScore;
     highScore = localStorage.getItem("silliesfromspace_highscore");
-    lbHighScore = "High Score: " + highScore;
+    lbHighScore = `High Score: ${highScore}`;
     if ((highScore == null) || (score > highScore)) {
       localStorage.setItem("silliesfromspace_highscore", score);
       document.getElementById("highscore").innerHTML = "New High Score🏆";
