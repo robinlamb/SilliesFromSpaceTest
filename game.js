@@ -31,7 +31,7 @@ var sillySong = zzfxM(...[[[.2,0,400,,.14,.8,,1.2,,,,,,,.1,,.01,,,1],[.7,0,3982,
 var color, eyes, mouth, isTitleScreen = true, isCoilSubscriber = false,
  score = 0, gameOver = false, startingClearScore = 50, clearScore = startingClearScore,
  animTitleScreen, animIdle, timer = 1500, isGameOver = false, isPlayerTurn = false,
- current_guess, timer_silly_moves, myAudioNode, songPlaying, highScore;
+ current_guess, timer_silly_moves, myAudioNode, songPlaying, highScore, lbHighScore, lbClearScore, lbScore;
 
 //Arrays
 //We will randomly select eyes, mouth and color for our Silly from arrays
@@ -212,7 +212,8 @@ function switchSillies(){
     document.getElementById("s_jetstream").style.visibility = "visible";
     zzfx(...[1.01,,59,,.06,.17,1,1.97,5.2,,,,,,,.3,,.76,.08]); // Jump 724
     document.getElementById("points").style.visibility = "visible";
-    document.getElementById("points").innerHTML = "+" + clearScore;
+    lbClearScore =  "+" + clearScore;
+    document.getElementById("points").innerHTML = lbClearScore;
     clearScore *= 2;
   }, 500);
 
@@ -356,14 +357,16 @@ function checkGuess(player_guess, silly_move) {
     myAudioNode.stop();
     zzfx(...[1.49,,143,,.39,.19,,1.43,,,-8,.09,.11,,,,.12,.73,.07,.24]); // Powerup 691
     document.getElementById("gameoverscreen").style.visibility = "visible";
-    document.getElementById("score").innerHTML = "Score: " + score;
+    lbScore = "Score: " + score;
+    document.getElementById("score").innerHTML = lbScore;
     highScore = localStorage.getItem("silliesfromspace_highscore");
+    lbHighScore = "High Score: " + highScore;
     if ((highScore == null) || (score > highScore)) {
       localStorage.setItem("silliesfromspace_highscore", score);
       document.getElementById("highscore").innerHTML = "New High Score🏆";
     }
     else {
-      document.getElementById("highscore").innerHTML = "High Score: " + highScore;
+      document.getElementById("highscore").innerHTML = lbHighScore;
 
     }
     if (isCoilSubscriber){
